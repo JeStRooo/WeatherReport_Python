@@ -195,6 +195,19 @@ class WeatherReport(QWidget):
                 self.wind_speed_label.setText(f"Wind Speed: {weather_data['wind_speed']} m/s")
                 self.wind_speed_label.setStyleSheet("font-size: 16px; color: #8398ea;")
                 self.wind_icon.setFixedSize(48, 48)
+            else:
+                self.city_name.setText("Город не найден")
+                self.city_name.setAlignment(Qt.AlignCenter)
+                self.weather_label.clear()
+                self.temperature_label.clear()
+                self.humidity_label.clear()
+                self.pressure_label.clear()
+                self.wind_speed_label.clear()
+                self.humidity_icon.setFixedSize(0, 0)
+                self.pressure_icon.setFixedSize(0, 0)
+                self.wind_icon.setFixedSize(0, 0)
+                self.weather_icon_clouds.setFixedSize(0, 0)
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
