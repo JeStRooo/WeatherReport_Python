@@ -1,15 +1,16 @@
 import requests
 
+import sys
+
+from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import Qt
 from PySide6.QtSvgWidgets import QSvgWidget
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QLineEdit
 from PySide6 import QtGui, QtCore
 from PySide6.QtWidgets import QVBoxLayout, QPushButton, QWidget
-from PyQt6 import QtWidgets
+from PySide6.QtGui import QIcon
 
 API_key = '332a956d69f5d90fb1a571aa6cc9606b'
-
-search = "./assets/searchIcon.svg"
 
 class WeatherReport(QWidget):
     def __init__(self):
@@ -210,7 +211,8 @@ class WeatherReport(QWidget):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
+    app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(r'./assets/weather.png'))
     weather_report = WeatherReport()
     weather_report.show()
     app.exec()
