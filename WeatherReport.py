@@ -16,13 +16,14 @@ class WeatherReport(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("WeatherReport")
-        self.resize(600, 600)
+
+        self.setWindowTitle("Weather Report")
+        self.setFixedSize(600, 600)
         # Установка фона только для WeatherReport.
         self.setStyleSheet("background-color: #edf0fc")  # Установка стиля для фона
 
         self.city_entry = QLineEdit()
-        self.city_entry.setPlaceholderText("Введите город")
+        self.city_entry.setPlaceholderText("Enter the city")
         self.city_entry.setStyleSheet("""
         QLineEdit { background-color: white; max-width: 400px; border-radius: 8px; padding: 9px; }
         """)
@@ -143,7 +144,7 @@ class WeatherReport(QWidget):
         city = self.city_entry.text()
 
         if not city:  # проверка, что строка ввода не пустая
-            self.city_name.setText("Город не найден")
+            self.city_name.setText("The City has not found")
             self.city_name.setAlignment(Qt.AlignCenter)
             self.weather_label.clear()
             self.temperature_label.clear()
